@@ -212,25 +212,24 @@
     </div>
   </section>
 
-     <form name="submit-to-google-sheet" id="contactForm">
-    <input name="Email" type="email" placeholder="Email" required>
-    <input name="Name" type="text" placeholder="Name" required>
-    <button type="submit" id="btnEnviar">Enviar</button>
-    <p id="mensajeEstado" class="status-message"></p>
-    
-   </form>
+     <form id="contactForm">
+  <input name="Email" type="email" placeholder="Email" required />
+  <input name="Name" type="text" placeholder="Name" required />
+  <button type="submit" id="btnEnviar">Enviar</button>
+  <p id="mensajeEstado" class="status-message"></p>
+</form>
 
 <div class="footer">
     <p>© 2025 Dulcería Val — Endulzando momentos.</p>
   </div>
 <script>
-   // 1. Seleccionamos el formulario
-    const form = document.getElementById('contactForm');
-    const statusMsg = document.getElementById('mensajeEstado');
-    const btn = document.getElementById('btnEnviar');
+  const form = document.getElementById("contactForm");
+  const btn = document.getElementById("btnEnviar");
+  const statusMsg = document.getElementById("mensajeEstado");
 
-    // Tu Web App URL:
-    const scriptURL ='https://script.google.com/macros/s/AKfycbzJPZb5i6WUQYJxApaGBwf7fJ37F9J3MmkkbBzHxF27OQtTBJl9HeBP4tO0ZJsew6rO/exec';
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbxFU5_c5P-nqFP9TWEln6Qv2kvHYdxmJRHtmhZs-aOdQ_qaq3j6FEy1mQU73qix_dVdVA/exec";
+
 
     // 3. Escuchamos el evento "submit"
       form.addEventListener('submit', e => {
