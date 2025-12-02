@@ -218,20 +218,9 @@
     <input name="Name" type="text" placeholder="Name" required>
     <input name="Father's Last Name" type="text" placeholder="Father's Last Name" required>
     <input name="Phone" type="text" placeholder="Phone" required>
-    <p id="mensajeEstado" class="status-message"></p>
-    
-    <form id="PedidoForm">
-    <input name="Select your product" type="text" placeholder="Select your product" required>
-    <input name="Amount" type="text" placeholder="Amount" required>
-    <input name="Desired delivery date" type="text" placeholder="Desired delivery date" required>
-    <input name="Preferred time" type="text" placeholder="Preferred time" required>
-    <input name="Comments or instructions" type="text" placeholder="Comments or instructions" required>
-    <p id="mensajeEstado" class="status-message"></p>
-
-      <form id="ConfirmationForm">
-    <input name="I confirm" type="text" placeholder="I confirm" required> 
     <button type="submit" id="btnEnviar">Enviar</button>
     <p id="mensajeEstado" class="status-message"></p>
+    
 </form>
 
 <div class="footer">
@@ -250,37 +239,7 @@
     <label for=\"tel\">Teléfono:</label>
     <input type=\"tel\" id=\"tel\" name=\"usuario_tel\" placeholder=\"55 1234 5678\" pattern=\"[0-9\s+]{8,}\" required>
   </fieldset>
-
-  <fieldset>
-    <legend>Pedido</legend>
-
-    <label for=\"producto\">Selecciona tu producto:</label>
-    <select id=\"producto\" name=\"pedido_item\" required>
-      <option value=\"\">Selecciona una opción</option>
-      <option value=\"gomitas\">Gomitas Variadas</option>
-      <option value=\"paletas\">Paletas de Caramelo</option>
-      <option value=\"chocolates\">Chocolates Surtidos</option>
-      <option value=\"acidos\">Dulces Ácidos</option>
-    </select>
-
-    <label for=\"cantidad\">Cantidad:</label>
-    <input type=\"number\" id=\"cantidad\" name=\"pedido_cantidad\" min=\"1\" value=\"1\" required>
-
-    <label for=\"fecha\">Fecha de entrega deseada:</label>
-    <input type=\"date\" id=\"fecha\" name=\"pedido_fecha\" required>
-
-    <label for=\"hora\">Hora preferente:</label>
-    <input type=\"time\" id=\"hora\" name=\"pedido_hora\">
-
-    <label for=\"mensaje\">Comentarios o instrucciones:</label>
-    <textarea id=\"mensaje\" name=\"usuario_mensaje\" placeholder=\"Ejemplo: entrega en recepción o especificar presentación.\"></textarea>
-  </fieldset>
-
-  <fieldset>
-    <legend>Confirmación</legend>
-    <label>
-      <input type=\"checkbox\" name=\"terminos\" required>
-      Confirmo que la información proporcionada es correcta y acepto los términos.
+  
     </label>
     <br><br>
     <div style=\"text-align:center;\">
@@ -297,10 +256,6 @@
 
 // 1. Seleccionamos el formulario
 const form = document.getElementById('contactForm');
-const statusMsg = document.getElementById('mensajeEstado');
-const form = document.getElementById('PedidoForm');
-const statusMsg = document.getElementById('mensajeEstado');
-const form = document.getElementById('ConfirmationForm');
 const statusMsg = document.getElementById('mensajeEstado');
 const btn = document.getElementById('btnEnviar');
 
