@@ -9,7 +9,7 @@
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
-      background-image: url('https://img.freepik.com/fotos-premium/fondo-azul-diferentes-dulces-golosinas_900101-17140.jpg?w=2000');
+      background-image: url('https://img.freepik.com/fotos-premium/fondo-azul-diferentes-dulces-golosinas_900101-17140.jpg?w=2000'); /* Fondo llamativo */
       background-size: cover;
       background-attachment: fixed;
       color: #1a1a1a;
@@ -17,11 +17,11 @@
     }
 
     header {
-      background-color: rgba(255, 105, 180, 0.9);
+      background-color: rgba(255, 105, 180, 0.9); /* Rosa */
       color: white;
       padding: 40px 20px;
       text-align: center;
-      border-bottom: 4px solid #b026ff;
+      border-bottom: 4px solid #b026ff; /* Morado */
     }
 
     header h1 {
@@ -98,6 +98,47 @@
       margin-top: 10px;
     }
 
+    form {
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    fieldset {
+      border: 2px solid #b026ff;
+      border-radius: 10px;
+      padding: 25px 40px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      color: #b026ff;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin: 10px auto 6px auto;
+      max-width: 600px;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 15px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
     button {
       background-color: #ff4db8;
       color: white;
@@ -141,43 +182,64 @@
   <section class="catalogo">
     <h2>Catálogo de Dulces</h2>
     <div class="grid">
-      <!-- tus tarjetas de dulces aquí -->
       <article class="card">
         <h3>Gomitas Variadas</h3>
         <p>Dulces suaves, frutales y llenos de color.</p>
         <strong>$25 MXN</strong>
         <img src="https://noro.mx/wp-content/uploads/2022/06/gomitas-2048x1152.jpg" alt="Gomitas">
       </article>
-      <!-- ... otras tarjetas ... -->
+
+      <article class="card">
+        <h3>Paletas de Caramelo</h3>
+        <p>Clásicas, coloridas y con sabor nostálgico.</p>
+        <strong>$10 MXN</strong>
+        <img src="https://th.bing.com/th/id/R.75588d6c6a1630fedbb25c9a2228cb87?rik=8ABG8NssTMQt0Q&pid=ImgRaw&r=0" alt="Paletas">
+      </article>
+
+      <article class="card">
+        <h3>Chocolates Surtidos</h3>
+        <p>Para los amantes del chocolate en todas sus formas.</p>
+        <strong>$30 MXN</strong>
+        <img src="https://thumbs.dreamstime.com/b/chocolates-7086986.jpg" alt="Chocolates">
+      </article>
+
+      <article class="card">
+        <h3>Dulces Ácidos</h3>
+        <p>Perfectos para quienes aman los sabores intensos.</p>
+        <strong>$20 MXN</strong>
+        <img src="https://m.media-amazon.com/images/I/816aX6h2ZJL._SL1500_.jpg" alt="Dulces ácidos">
+      </article>
     </div>
   </section>
 
-  <!-- FORMULARIO CORREGIDO: se le agrega id="contactForm" -->
-  <form name="submit-to-google-sheet" id="contactForm">
+    <form name="submit-to-google-sheet">
     <input name="Email" type="email" placeholder="Email" required>
     <input name="Name" type="text" placeholder="Name" required>
     <button type="submit" id="btnEnviar">Enviar</button>
     <p id="mensajeEstado" class="status-message"></p>
-  </form>
+    
+   </form>
 
-  <div class="footer">
+<div class="footer">
     <p>© 2025 Dulcería Val — Endulzando momentos.</p>
   </div>
-
-  <script>
+<script>
+   // 1. Seleccionamos el formulario
     const form = document.getElementById('contactForm');
     const statusMsg = document.getElementById('mensajeEstado');
     const btn = document.getElementById('btnEnviar');
 
-    // Tu Web App URL:
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwKpWfZaZ_LV4MITtNniF5LGB7HuowWbfHE43MUZlZyhi1fcj2KUVo-OebaiYxUAgSn/exec";
+    // 2. URL de tu Script de Google (Usé la que tenías en el <form>)
+    const scriptURL ='https://docs.google.com/spreadsheets/d/1mckxT3Rd2SbO8FdbFnxI8MF-ehScVlsdh5WIqHHEt8U/edit?gid=0#gid=0';
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
+    // 3. Escuchamos el evento "submit"
+     form.addEventListener('submit', e => {
+      e.preventDefault(); // IMPORTANTE: Esto evita que la página se recargue o cambie a la pantalla blanca con JSON
 
       btn.disabled = true;
       btn.textContent = "Enviando...";
 
+      // Creamos los datos del formulario automáticamente
       const formData = new FormData(form);
 
       fetch(scriptURL, {
@@ -185,11 +247,13 @@
         body: formData
       })
       .then(response => {
-        statusMsg.textContent = "¡Datos enviados con éxito!";
-        statusMsg.style.color = "green";
-        form.reset();
-        btn.disabled = false;
-        btn.textContent = "Enviar";
+         // Google Apps Script suele devolver status 200 aunque haya errores lógicos,
+         // pero si llega aquí, la conexión fue exitosa.
+         statusMsg.textContent = "¡Datos enviados con éxito!";
+         statusMsg.style.color = "green";
+         form.reset(); // Limpia los campos
+         btn.disabled = false;
+         btn.textContent = "Enviar";
       })
       .catch(error => {
         console.error('Error!', error.message);
@@ -200,5 +264,6 @@
       });
     });
   </script>
+
 </body>
 </html>
