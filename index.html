@@ -212,30 +212,28 @@
     </div>
   </section>
 
-     <form id="contactForm">
-  <input name="Email" type="email" placeholder="Email" required />
-  <input name="Name" type="text" placeholder="Name" required />
-  <button type="submit" id="btnEnviar">Enviar</button>
-  <p id="mensajeEstado" class="status-message"></p>
-</form>
+    <form name="submit-to-google-sheet">
+    <input name="Email" type="email" placeholder="Email" required>
+    <input name="Name" type="text" placeholder="Name" required>
+    <button type="submit" id="btnEnviar">Enviar</button>
+    <p id="mensajeEstado" class="status-message"></p>
+    
+   </form>
 
 <div class="footer">
     <p>© 2025 Dulcería Val — Endulzando momentos.</p>
   </div>
-</section>
-  
-     <form method="POST" action="https://script.google.com/macros/s/AKfycbzYf2QDJNGka_oS-01KBUPB-RkZb8ms3JKN5OVL2FKa1aW0Y3lJPSDmN0l_-QdxWpks/exec">
-  <fieldset>
-    <legend>Información Personal</legend>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="usuario_nombre" placeholder="Nombre o Nombres" required>
-    
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="usuario_email" placeholder="tucorreo@ejemplo.com" required>
-    <fieldset>
+<script>
+   // 1. Seleccionamos el formulario
+    const form = document.getElementById('contactForm');
+    const statusMsg = document.getElementById('mensajeEstado');
+    const btn = document.getElementById('btnEnviar');
+
+    // 2. URL de tu Script de Google (Usé la que tenías en el <form>)
+    const scriptURL ='https://script.google.com/macros/s/AKfycbzYf2QDJNGka_oS-01KBUPB-RkZb8ms3JKN5OVL2FKa1aW0Y3lJPSDmN0l_-QdxWpks/exec';
 
     // 3. Escuchamos el evento "submit"
-      form.addEventListener('submit', e => {
+     form.addEventListener('submit', e => {
       e.preventDefault(); // IMPORTANTE: Esto evita que la página se recargue o cambie a la pantalla blanca con JSON
 
       btn.disabled = true;
