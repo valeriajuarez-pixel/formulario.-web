@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dulcería Val</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background-image: url('https://img.freepik.com/fotos-premium/fondo-azul-diferentes-dulces-golosinas_900101-17140.jpg?w=2000'); /* Fondo llamativo */
+      background-size: cover;
+      background-attachment: fixed;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+
+    header {
+      background-color: rgba(255, 105, 180, 0.9); /* Rosa */
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 4px solid #b026ff; /* Morado */
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 40px;
+    }
+
+    header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    section.acerca {
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 40px 20px;
+      border-bottom: 4px solid #F54927;
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    section.acerca h2 {
+      color: #F54927;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    section.catalogo h2 {
+      color: #F54927;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .catalogo {
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 40px 20px;
+      border-top: 4px solid #b026ff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      border: 1px solid #ffb3e6;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #ffe6f7;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      color: #b026ff;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .card img {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    fieldset {
+      border: 2px solid #b026ff;
+      border-radius: 10px;
+      padding: 25px 40px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      color: #b026ff;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin: 10px auto 6px auto;
+      max-width: 600px;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 15px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    button {
+      background-color: #ff4db8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 10px;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b026ff;
+    }
+
+    .footer {
+      background-color: #b026ff;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>DULCERÍA VAL</h1>
+    <p>El lugar donde los antojos se cumplen</p>
+  </header>
+
+  <section class="acerca">
+    <h2>Acerca de Dulcería Val</h2>
+    <p>
+      Somos una dulcería dedicada a ofrecer los productos más ricos, coloridos y divertidos para todos. Desde dulces tradicionales hasta golosinas modernas, tenemos algo para cada gusto. ¡Endulza tu día con nosotros!
+    </p>
+  </section>
+
+  <section class="catalogo">
+    <h2>Catálogo de Dulces</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Gomitas Variadas</h3>
+        <p>Dulces suaves, frutales y llenos de color.</p>
+        <strong>$25 MXN</strong>
+        <img src="https://noro.mx/wp-content/uploads/2022/06/gomitas-2048x1152.jpg" alt="Gomitas">
+      </article>
+
+      <article class="card">
+        <h3>Paletas de Caramelo</h3>
+        <p>Clásicas, coloridas y con sabor nostálgico.</p>
+        <strong>$10 MXN</strong>
+        <img src="https://th.bing.com/th/id/R.75588d6c6a1630fedbb25c9a2228cb87?rik=8ABG8NssTMQt0Q&pid=ImgRaw&r=0" alt="Paletas">
+      </article>
+
+      <article class="card">
+        <h3>Chocolates Surtidos</h3>
+        <p>Para los amantes del chocolate en todas sus formas.</p>
+        <strong>$30 MXN</strong>
+        <img src="https://thumbs.dreamstime.com/b/chocolates-7086986.jpg" alt="Chocolates">
+      </article>
+
+      <article class="card">
+        <h3>Dulces Ácidos</h3>
+        <p>Perfectos para quienes aman los sabores intensos.</p>
+        <strong>$20 MXN</strong>
+        <img src="https://m.media-amazon.com/images/I/816aX6h2ZJL._SL1500_.jpg" alt="Dulces ácidos">
+      </article>
+    </div>
+  </section>
+
+  <form action=\"#\" method=\"POST\">
+  <fieldset>
+    <legend>Información Personal</legend>
+
+    <label for=\"nombre\">Nombre:</label>
+    <input type=\"text\" id=\"nombre\" name=\"usuario_nombre\" placeholder=\"Nombre o Nombres\" required>
+
+    <label for=\"apellido_p\">Apellido Paterno:</label>
+    <input type=\"text\" id=\"apellido_p\" name=\"usuario_apellido_p\" placeholder=\"Apellido Paterno\" required>
+
+    <label for=\"email\">Correo electrónico:</label>
+    <input type=\"email\" id=\"email\" name=\"usuario_email\" placeholder=\"tucorreo@ejemplo.com\" required>
+
+    <label for=\"tel\">Teléfono:</label>
+    <input type=\"tel\" id=\"tel\" name=\"usuario_tel\" placeholder=\"55 1234 5678\" pattern=\"[0-9\s+]{8,}\" required>
+  </fieldset>
+
+  <fieldset>
+    <legend>Pedido</legend>
+
+    <label for=\"producto\">Selecciona tu producto:</label>
+    <select id=\"producto\" name=\"pedido_item\" required>
+      <option value=\"\">Selecciona una opción</option>
+      <option value=\"gomitas\">Gomitas Variadas</option>
+      <option value=\"paletas\">Paletas de Caramelo</option>
+      <option value=\"chocolates\">Chocolates Surtidos</option>
+      <option value=\"acidos\">Dulces Ácidos</option>
+    </select>
+
+    <label for=\"cantidad\">Cantidad:</label>
+    <input type=\"number\" id=\"cantidad\" name=\"pedido_cantidad\" min=\"1\" value=\"1\" required>
+
+    <label for=\"fecha\">Fecha de entrega deseada:</label>
+    <input type=\"date\" id=\"fecha\" name=\"pedido_fecha\" required>
+
+    <label for=\"hora\">Hora preferente:</label>
+    <input type=\"time\" id=\"hora\" name=\"pedido_hora\">
+
+    <label for=\"mensaje\">Comentarios o instrucciones:</label>
+    <textarea id=\"mensaje\" name=\"usuario_mensaje\" placeholder=\"Ejemplo: entrega en recepción o especificar presentación.\"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>Confirmación</legend>
+    <label>
+      <input type=\"checkbox\" name=\"terminos\" required>
+      Confirmo que la información proporcionada es correcta y acepto los términos.
+    </label>
+    <br><br>
+    <div style=\"text-align:center;\">
+      <button type=\"submit\">Enviar Pedido</button>
+      <button type=\"reset\">Limpiar</button>
+    </div>
+  </fieldset>
+</form>
+
+<div class=\"footer\">
+    <p>© 2025 Dulcería Val — Endulzando momentos.</p>
+  </div>
+
+</body>
+</html>
