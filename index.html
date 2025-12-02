@@ -212,7 +212,7 @@
     </div>
   </section>
 
-  <form id="contactForm">
+    <form name="submit-to-google-sheet">
     <input name="Email" type="email" placeholder="Email" required>
     <input name="Name" type="text" placeholder="Name" required>
     <button type="submit" id="btnEnviar">Enviar</button>
@@ -230,7 +230,7 @@
     const btn = document.getElementById('btnEnviar');
 
     // 2. URL de tu Script de Google (Usé la que tenías en el <form>)
-    const scriptURL ='https://script.google.com/macros/s/AKfycbz2cs-0sz969eSeZXOXt_GSk1aJ0_ZeKhLw_APtkpGkYm02cse40tXiXnC0bb90K06JOg/exec';
+    const scriptURL ='https://docs.google.com/spreadsheets/d/1mckxT3Rd2SbO8FdbFnxI8MF-ehScVlsdh5WIqHHEt8U/edit?gid=0#gid=0';
 
     // 3. Escuchamos el evento "submit"
     form.addEventListener('submit', e => {
