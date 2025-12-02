@@ -216,8 +216,6 @@
   <form id="contactForm">
     <input name="Email" type="email" placeholder="Email" required>
     <input name="Name" type="text" placeholder="Name" required>
-    <input name="Father's Last Name" type="text" placeholder="Father's Last Name" required>
-    <input name="Phone" type="text" placeholder="Phone" required>
     <button type="submit" id="btnEnviar">Enviar</button>
     <p id="mensajeEstado" class="status-message"></p>
     
@@ -228,10 +226,46 @@
   </div>
 <script>
 
-// 1. Seleccionamos el formulario
-constform = document.getElementById('contactForm');
-conststatusMsg = document.getElementById('mensajeEstado');
-constbtn = document.getElementById('btnEnviar');
+   // 1. Seleccionamos el formulario
+    const form = document.getElementById('contactForm');
+    const statusMsg = document.getElementById('mensajeEstado');
+    const btn = document.getElementById('btnEnviar');
 
-// 2. URL de tu Script de Google (Usé la que tenías en el <form>)
-constscriptURL ='https://script.google.com/macros/s/AKfycbx0R4DaXwGM9nB1FGTtxZdFPGe11S11hcmK2iYE9A6e5wRO2mBK7KDwuDKoT7eh6kNl/exec'
+    // 2. URL de tu Script de Google (Usé la que tenías en el <form>)
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzIHpBrWxWaCPBXTz7afyGKFWNdR4SD9FxuGSZxAH2m7g25nNfUR51iGYquU4ACKuO-/exec';
+
+    // 3. Escuchamos el evento "submit"
+    form.addEventListener('submit', e => {
+      e.preventDefault(); // IMPORTANTE: Esto evita que la página se recargue o cambie a la pantalla blanca con JSON
+
+      btn.disabled = true;
+      btn.textContent = "Enviando...";
+
+      // Creamos los datos del formulario automáticamente
+      const formData = new FormData(form);
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+         // Google Apps Script suele devolver status 200 aunque haya errores lógicos,
+         // pero si llega aquí, la conexión fue exitosa.
+         statusMsg.textContent = "¡Datos enviados con éxito!";
+         statusMsg.style.color = "green";
+         form.reset(); // Limpia los campos
+         btn.disabled = false;
+         btn.textContent = "Enviar";
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        statusMsg.textContent = "Hubo un error al enviar.";
+        statusMsg.style.color = "red";
+        btn.disabled = false;
+        btn.textContent = "Enviar";
+      });
+    });
+  </script>
+
+</body>
+</html>
